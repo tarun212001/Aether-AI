@@ -1,88 +1,90 @@
-# Local AI Voice Chat 
+# 🎙️ Aether AI Voice Chat  
 
-Provides talk in realtime with AI, completely local on your PC, with customizable AI personality and voice.
+> **Talk to your AI — privately, locally, and in real time.**  
+> A fully offline, customizable voice-based chatbot powered by open-source AI models.
 
-> **Hint:** *Anybody interested in state-of-the-art voice solutions please also <strong>have a look at [Linguflex](https://github.com/KoljaB/Linguflex)</strong>. It lets you control your environment by speaking and is one of the most capable and sophisticated open-source assistants currently available.*
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![License](https://img.shields.io/badge/License-Coqui%20Public%20Model%20License%201.0.0-green.svg)
+![Status](https://img.shields.io/badge/Status-Alpha-orange.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
+![GPU](https://img.shields.io/badge/GPU-8GB%2B%20VRAM%20Recommended-blueviolet.svg)
 
-> **Note:** If you run into 'General synthesis error: isin() received an invalid combination of arguments' error, this is due to new transformers library introducing an incompatibility to Coqui TTS (see [here](https://github.com/KoljaB/RealtimeTTS/issues/85)). Please downgrade to an older transformers version: `pip install transformers==4.38.2` or upgrade RealtimeTTS to latest version `pip install realtimetts==0.4.1`.
+---
 
-## About the Project
+## 🧠 About the Project
 
-Integrates the powerful Zephyr 7B language model with real-time speech-to-text and text-to-speech libraries to create a fast and engaging voicebased local chatbot. 
+** Aether AI Voice Chat** brings together cutting-edge open-source AI tools to let you **converse naturally with your computer — completely offline.**
 
-https://github.com/KoljaB/LocalAIVoiceChat/assets/7604638/cebacdad-8a57-4a03-bfd1-a469730dda51
+It integrates the **Zephyr 7B** language model with real-time **speech-to-text** and **text-to-speech** components, enabling fast, natural, and secure voice-based interactions on your local machine.
 
-> **Hint:** If you run into problems installing llama.cpp please also have a look into my [LocalEmotionalAIVoiceChat project](https://github.com/KoljaB/LocalEmotionalAIVoiceChat). It includes emotion-aware realtime text-to-speech output and has multiple LLM provider options. You can also use it with different AI models. 
+This is a demonstration of how real-time transcription, local inference, and custom voice synthesis can create a powerful conversational AI without the need for cloud services.
 
-## Tech Stack
+---
 
-- **[llama_cpp](https://github.com/ggerganov/llama.cpp)** with Zephyr 7B  
-  - library interface for llamabased language models
-- **[RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)** with faster_whisper  
-  - real-time speech-to-text transcription library
-- **[RealtimeTTS](https://github.com/KoljaB/RealtimeTTS)** with Coqui XTTS  
-  - real-time text-to-speech synthesis library
+## 🧩 Tech Stack
 
-## Notes
+| Component | Technology | Description |
+|------------|-------------|-------------|
+| **Language Model** | [llama.cpp](https://github.com/ggerganov/llama.cpp) + **Zephyr 7B** | Lightweight LLM inference for local chat |
+| **Speech-to-Text (STT)** | [RealtimeSTT](https://github.com/KoljaB/RealtimeSTT) + **faster_whisper** | High-speed, low-latency voice transcription |
+| **Text-to-Speech (TTS)** | [RealtimeTTS](https://github.com/KoljaB/RealtimeTTS) + **Coqui XTTS** | Real-time natural voice synthesis |
 
-This software is in an experimental alpha state and does not provide production ready stability. The current XTTS model used for synthesis still has glitches and also Zephyr - while really good for a 7B model - of course can not compete with the answer quality of GPT 4, Claude or Perplexity.
+---
 
-Please take this as a first attempt to provide an early version of a local realtime chatbot.
+## ⚠️ Project Status  
 
-### Updates
+🚧 **Experimental Alpha Build**  
 
-- Update to Coqui XTTS 2.0 model
-- Bugfix to RealtimeTTS (download of Coqui model did not work properly)
+This project is in early development and **not yet production-ready.**  
+While it delivers solid performance for a 7B model, you may experience:
+- Occasional **voice glitches** with XTTS 2.0  
+- **Latency** on lower-end GPUs  
+- **Simpler reasoning** compared to GPT-4 or Claude  
 
-### Prerequisites
+Please consider this a proof-of-concept for a local, private, real-time AI voice assistant.
 
-You will need a GPU with around 8 GB VRAM to run this in real-time.
+---
 
-#### For nVidia users
+## 🆕 Updates  
 
-- **NVIDIA CUDA Toolkit 11.8**:
-    - Access the [NVIDIA CUDA Toolkit Archive](https://developer.nvidia.com/cuda-11-8-0-download-archive).
-    - Choose version 11.x and follow the instructions for downloading and installation.
+- 🔊 Updated to **Coqui XTTS 2.0** for improved synthesis quality  
+- 🐞 Fixed RealtimeTTS model download bug  
+- ⚙️ Stability and dependency improvements  
 
-- **NVIDIA cuDNN 8.7.0 for CUDA 11.x**:
-    - Navigate to [NVIDIA cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive).
-    - Locate and download "cuDNN v8.7.0 (November 28th, 2022), for CUDA 11.x".
-    - Follow the provided installation guide.
+---
 
-#### For AMD users
-- **Install ROCm v.5.7.1**
-    - Download [ROCm SDK version 5.7.1](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html)
-    - Follow the provided installation guide.
+## 💻 Prerequisites  
 
+### 🖥️ Hardware
+- GPU with **at least 8 GB VRAM** recommended for real-time performance  
 
-- **FFmpeg**:
+### ⚙️ Software  
 
-    Install FFmpeg according to your operating system:
+#### For NVIDIA Users
+- **CUDA Toolkit 11.8** → [Download](https://developer.nvidia.com/cuda-11-8-0-download-archive)
+- **cuDNN 8.7.0 for CUDA 11.x** → [Download](https://developer.nvidia.com/rdp/cudnn-archive)
 
-    - **Ubuntu/Debian**:
-        ```shell
-        sudo apt update && sudo apt install ffmpeg
-        ```
+#### For AMD Users
+- **ROCm SDK 5.7.1** → [Download](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html)
 
-    - **Arch Linux**:
-        ```shell
-        sudo pacman -S ffmpeg
-        ```
+#### FFmpeg
+Install FFmpeg according to your OS:
 
-    - **macOS (Homebrew)**:
-        ```shell
-        brew install ffmpeg
-        ```
+```bash
+# Ubuntu / Debian
+sudo apt update && sudo apt install ffmpeg
 
-    - **Windows (Chocolatey)**:
-        ```shell
-        choco install ffmpeg
-        ```
+# Arch Linux
+sudo pacman -S ffmpeg
 
-    - **Windows (Scoop)**:
-        ```shell
-        scoop install ffmpeg
-        ```    
+# macOS (Homebrew)
+brew install ffmpeg
+
+# Windows (Chocolatey)
+choco install ffmpeg
+
+# Windows (Scoop)
+scoop install ffmpeg
 
 
 ### Installation Steps 
@@ -151,10 +153,3 @@ The project is under [Coqui Public Model License 1.0.0](https://coqui.ai/cpml).
 
 This license allows only non-commercial use of a machine learning model and its outputs.
 
-
-## Contact
-
-Kolja Beigel  
-- Email: [kolja.beigel@web.de](mailto:kolja.beigel@web.de)  
-
-Feel free to reach out for any queries or support related to this project.
